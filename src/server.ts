@@ -1,8 +1,9 @@
+import 'reflect-metadata';
 import express from 'express';
 
-const app = express();
+import "./database";
 
-app.get("", )
+const app = express();
 
 app.listen(3000, () => console.log("Server is running in http://localhost:3000"));
 
