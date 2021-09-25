@@ -29,6 +29,6 @@ $ git clone https://github.com/AbnerBittencourt/API_Bank
 - Open the project folder and run the following commands
 
 ```bash
-$ yarn ou npm i
-$ yarn start ou npm start
+$ yarn or npm i
+$ yarn dev or npm run dev
 ```
