@@ -1,7 +1,10 @@
 import { Request, Response, NextFunction } from "express";
 import { verify } from "jsonwebtoken";
-import authConfig from "../config/auth";
+import authConfig from "../../config/auth";
 
+interface IPayload {
+  sub: string;
+} 
 export default function isAuthenticated(
   request: Request,
   response: Response,
@@ -16,10 +19,12 @@ export default function isAuthenticated(
   const [, token] = authHeader.split(' ');
 
   try {
-    const decodeToken = verify(token, authConfig.jwt.secret);
+    const { sub } = verify(token, authConfig.jwt.secret) as IPayload;
 
+    request.user_id = sub;
+    
     return next();
   } catch {
-    throw new Error("Token inválido.")
+    response.status(401).end();
   }
 };

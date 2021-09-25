@@ -3,7 +3,7 @@ import { User } from "../entities/User";
 import { UsersRepositories } from "../repositories/UsersRepositories";
 import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
-import authConfig from "../config/auth";
+import authConfig from "../../../config/auth";
 
 interface IUserRequest {
   cpf: string;
