@@ -32,17 +32,18 @@ export class CreateUsers1632507282694 implements MigrationInterface {
                     },
                     {
                         name: "balance",
-                        type: "number",
-                        default: 0
-                    },
+                        type: "decimal",
+                        precision: 5,
+                        scale: 5,
+                      },
                     {
                         name: "created_at",
-                        type: "timestamp with timezone",
+                        type: "timestamp without timezone",
                         default: "now()"
                     },
                     {
                         name: "updated_at",
-                        type: "timestamp with timezone",
+                        type: "timestamp without timezone",
                         default: "now()"
                     }
                 ]

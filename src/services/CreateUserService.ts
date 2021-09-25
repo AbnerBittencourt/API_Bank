@@ -1,4 +1,4 @@
-//ESTE SERVIÇO NÃO VAI ESTAR DISPONÍVEL PARA O USUÁRIO DO FRONT, ELE FOI CRIADO SOMENTE PARA ADICIONAR USUÁRIOS NO BANCO DE DADOS PELA API
+//ESTE SERVIÇO NÃO ESTARÁ DISPONÍVEL PARA O USUÁRIO DO FRONT, ELE FOI CRIADO SOMENTE PARA ADICIONAR USUÁRIOS NO BANCO DE DADOS PELA API
 import { getCustomRepository } from "typeorm";
 import { UsersRepositories } from "../repositories/UsersRepositories";
 
@@ -12,8 +12,9 @@ interface IUserRequest {
 
 class CreateUserService {
 
-  async execute({ name, cpf, account, password, balance }: IUserRequest) {
+  public async execute({ name, cpf, account, password, balance }: IUserRequest) {
     const usersRepository = getCustomRepository(UsersRepositories);
+    
     if(!cpf) {
       throw new Error("Digite um CPF válido.")
     };
@@ -22,9 +23,7 @@ class CreateUserService {
       throw new Error("Digite número de conta válido.")
     };
 
-    const userAlreadyExists = await usersRepository.findOne({
-      cpf, account
-    });
+    const userAlreadyExists = await usersRepository.findByCPF(cpf);
 
     if(userAlreadyExists) {
       throw new Error("Já existe um usuário com estes dados.")

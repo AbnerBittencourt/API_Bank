@@ -19,7 +19,7 @@ class User {
   @Column()
   password: string;
 
-  @Column("decimal")
+  @Column()
   balance: number;
 
   @CreateDateColumn()
