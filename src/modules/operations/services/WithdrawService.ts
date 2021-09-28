@@ -17,10 +17,6 @@ class WithdrawService {
       throw new Error("Inválido!");
     }
 
-    // if(account != user.account) {
-    //   throw new Error("Inválido!");
-    // }
-
     if (user.balance >= balance) {
       user.balance = user.balance - balance; 
     } else {

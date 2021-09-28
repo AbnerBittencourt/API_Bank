@@ -21,7 +21,7 @@ class CreateLoginService {
     if(!user) {
       throw new Error("CPF ou senha inválidos.");
     }
-    console.log(user.password)
+
     if(password != user.password) {
       throw new Error("CPF ou senha inválidos.");
     }

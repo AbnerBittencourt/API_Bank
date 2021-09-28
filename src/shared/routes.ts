@@ -22,8 +22,8 @@ router.post("/users", createUserController.handle); //ROTA EXCLUSIVA DA API PARA
 //Rotas que o front end vai consumir
 router.post("/login", loginController.create);
 router.get("/dashboard/:id", listDataController.handle);
-router.patch("/dashboard/deposit", depositController.handle);
-router.patch("/dashboard/withdraw/:id", withdrawController.handle);
+router.post("/dashboard/deposit", depositController.handle);
+router.post("/dashboard/withdraw/:id", withdrawController.handle);
 
 
 export { router };
