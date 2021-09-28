@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { CreateUserController } from "../modules/users/controllers/CreateUserController";
-import isAuthenticated from "./middlewares/Authentication";
+// import isAuthenticated from "./middlewares/Authentication";
 //Users
 import { LoginController } from "../modules/users/controllers/LoginController";
 import { ListDataController } from "../modules/users/controllers/ListDataController";
@@ -21,9 +21,9 @@ router.post("/users", createUserController.handle); //ROTA EXCLUSIVA DA API PARA
 
 //Rotas que o front end vai consumir
 router.post("/login", loginController.create);
-router.get("/dashboard", isAuthenticated, listDataController.handle);
-router.patch("/dashboard/deposit", isAuthenticated, depositController.handle);
-router.patch("/dashboard/withdraw", isAuthenticated, withdrawController.handle);
+router.get("/dashboard", listDataController.handle);
+router.patch("/dashboard/deposit", depositController.handle);
+router.patch("/dashboard/withdraw", withdrawController.handle);
 
 
 export { router };

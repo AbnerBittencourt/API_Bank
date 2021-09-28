@@ -8,13 +8,13 @@ class CreateUserController {
 
     const createUserService = new CreateUserService();
 
-    const hashedPassword = await hash(password, 6);
+    // const hashedPassword = await hash(password, 6);
 
     const user = await createUserService.execute({
       name, 
       cpf, 
       account, 
-      password: hashedPassword, 
+      password, 
       balance
     });
 

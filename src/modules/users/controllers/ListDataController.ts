@@ -8,7 +8,7 @@ class ListDataController {
     const listDataService = new ListDataService();
 
     const data = await listDataService.execute(user_id);
-
+    console.log(data);
     return response.json(data);
   }
 }

@@ -2,17 +2,16 @@ import { getCustomRepository } from "typeorm";
 import { UsersRepositories } from "../../users/repositories/UsersRepositories";
 
 interface IWithdraw {
-  user_id: string;
   account: string 
   balance: number
 } 
 class WithdrawService {
 
-  public async execute( { user_id, account, balance }: IWithdraw){
+  public async execute( {account, balance}: IWithdraw ){
     const userRepository = getCustomRepository(UsersRepositories);
     const user = await userRepository.findByAccount(account);
 
-    if(user_id != user.id || account != user.account ) {
+    if(account != user.account ) {
       throw new Error("Inválido!")
     }
 
