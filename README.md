@@ -14,8 +14,6 @@ This API was developed during a technical challenge.
 - ✔️ Node.js with TypeScript
 - ✔️ Express
 - ✔️ TypeORM
-- ✔️ JsonWebToken
-- ✔️ BcryptJS
 - ✔️ SQLite(Database)
 
 ## How to run the project
