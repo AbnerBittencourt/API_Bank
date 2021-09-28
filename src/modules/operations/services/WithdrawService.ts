@@ -1,19 +1,25 @@
+import { Request } from "express";
 import { getCustomRepository } from "typeorm";
 import { UsersRepositories } from "../../users/repositories/UsersRepositories";
 
 interface IWithdraw {
-  account: string 
-  balance: number
+  id: string;
+  account: string; 
+  balance: number;
 } 
 class WithdrawService {
 
-  public async execute( {account, balance}: IWithdraw ){
+  public async execute( { id, account, balance}: IWithdraw ){
     const userRepository = getCustomRepository(UsersRepositories);
     const user = await userRepository.findByAccount(account);
 
-    if(account != user.account ) {
-      throw new Error("Inválido!")
+    if(id != user.id || account != user.account) {
+      throw new Error("Inválido!");
     }
+
+    // if(account != user.account) {
+    //   throw new Error("Inválido!");
+    // }
 
     if (user.balance >= balance) {
       user.balance = user.balance - balance; 

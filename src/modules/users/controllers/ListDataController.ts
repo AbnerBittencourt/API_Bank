@@ -2,15 +2,13 @@ import { Request, Response } from "express";
 import { ListDataService } from "../services/ListDataService";
 
 class ListDataController {
-  async handle(request: Request, response: Response) {
-    const { user_id } = request;
-
+  
+  public async handle(request:Request, response:Response):Promise<Response>{
     const listDataService = new ListDataService();
-
-    const data = await listDataService.execute(user_id);
-    console.log(data);
-    return response.json(data);
-  }
+    const {id} = request.params;
+    const data = await listDataService.execute({id});
+    return response.status(200).json(data);
+  } 
 }
 
 export { ListDataController };
