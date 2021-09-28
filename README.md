@@ -32,3 +32,5 @@ $ git clone https://github.com/AbnerBittencourt/API_Bank
 $ yarn or npm i
 $ yarn dev or npm run dev
 ```
+
+Insominia_Tivic.json is the file for testing API routes, made in Insomnia
